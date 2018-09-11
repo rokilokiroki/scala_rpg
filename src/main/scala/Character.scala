@@ -1,4 +1,4 @@
-class Character extends Human{
+class Character extends Human with Aggressive {
   override var HP: Int = 10
   override var MP: Int = 10
   var SEX :String = _
@@ -41,6 +41,6 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
     }
 
   def getSKILL(): Unit ={
-    
+
   }
 }
