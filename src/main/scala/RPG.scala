@@ -5,6 +5,14 @@ object RPG {
   def main(args: Array[String]): Unit = {
     val character = new Character
     println("勇者の名前を入力してください")
+//    try {
+//      val name = io.StdIn.readLine()
+//    } catch {
+//      e: ArrayIndexOutOfBoundsException
+//      sys.exit
+//    } finally {
+//      in.close()
+//    }
     val name = io.StdIn.readLine()
     val yuusha_name = if (name != null){
       name.split(' ')
@@ -24,4 +32,5 @@ object RPG {
     yuusha.MP = yuusha.getMP(elements.get("MP"))
 
   }
+
 }

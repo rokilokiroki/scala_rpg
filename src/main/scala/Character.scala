@@ -1,6 +1,7 @@
 class Character extends Human{
   override var HP: Int = 10
   override var MP: Int = 10
+  var SEX :String = _
   def attack(): Unit ={
     println("攻撃します")
   }
@@ -40,6 +41,6 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
     }
 
   def getSKILL(): Unit ={
-
+    
   }
 }
