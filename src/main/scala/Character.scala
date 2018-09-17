@@ -43,4 +43,5 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
   def getSKILL(): Unit ={
 
   }
+
 }
