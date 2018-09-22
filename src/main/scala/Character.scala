@@ -1,3 +1,5 @@
+import java.io.{BufferedReader, FileReader}
+import scala.collection.mutable
 class Character extends Human with Aggressive {
   override var HP: Int = 10
   override var MP: Int = 10
@@ -10,14 +12,6 @@ class Character extends Human with Aggressive {
   }
 
 }
-
-//class Fullname(){
-//  def get(firstname: String, lastname: String) = firstname + "" + lastname
-//}
-//
-//class FullnameInJapan() extends Fullname {
-//  override def get(firstname: String, lastname: String): String = lastname + "" + firstname
-//}
 
 class Yuusha(val firstname: String, val lastname: String) extends Character {
   def getHP (HP: Option[Int]) = {
@@ -40,8 +34,15 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
       }
     }
 
-  def getSKILL(): Unit ={
-
+  def getSKILL() ={
+    var reader = new BufferedReader( new FileReader("./src/main/scala/Skill.txt") )
+    var skill:String = null
+    val skillList = new collection.mutable.ListBuffer[String]
+    while( { skill = reader.readLine; skill != null } ) {
+      skillList.append(skill)
+    }
+    reader.close
+    println(skillList.head)
   }
 
 }

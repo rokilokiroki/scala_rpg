@@ -1,4 +1,5 @@
-import java.io.{BufferedReader, FileReader}
+import java.io.{BufferedReader, File, FileReader}
+
 import scala.collection.immutable.Map
 
 object RPG {
@@ -63,16 +64,6 @@ object RPG {
       "HP" -> firstname.length(),
       "MP" -> lastname.length()
     )
-    val fr:FileReader = new FileReader("./src/main/scala/Skill.txt")
-    val br:BufferedReader = new BufferedReader(fr)
-
-    val str = br.readLine()
-    println(str)
-
-    while(str != null) {
-      val str = br.readLine()
-    }
-
     val slime = Monster.apply("slime","mera")
     val metalslime = slime.copy("metalslime", "merami")
     slime.printSkill()
@@ -81,8 +72,9 @@ object RPG {
     yuusha.attack()
     yuusha.HP = yuusha.getHP(elements.get("HP"))
     yuusha.MP = yuusha.getMP(elements.get("MP"))
-    println(yuusha.die)
-    println(character.talent)
+    println(yuusha.die())
+    println(character.talent())
+    println(yuusha.getSKILL())
   }
 
 }
