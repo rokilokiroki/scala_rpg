@@ -13,6 +13,7 @@ trait Human extends Creature{
 trait Creature {
   def die(): Unit ={
     println("生きていれば必ず死ぬ")
+    sys.exit()
   }
 }
 

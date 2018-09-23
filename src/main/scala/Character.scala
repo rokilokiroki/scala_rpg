@@ -1,5 +1,4 @@
 import java.io.{BufferedReader, FileReader}
-import scala.collection.mutable
 class Character extends Human with Aggressive {
   override var HP: Int = 10
   override var MP: Int = 10
