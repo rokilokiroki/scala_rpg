@@ -1,5 +1,3 @@
-import java.io.{BufferedReader, File, FileReader}
-
 import scala.collection.immutable.Map
 
 object RPG {
@@ -18,16 +16,23 @@ object RPG {
     } else {
       sys.exit
     }
-
     val firstname:String = yuushaName(0)
     val lastname: String = yuushaName.lift(1) match {
       case Some(lastname) => lastname
       case None => sys.exit()
     }
+
+//    println("自分の星座を入力してください")
+//    val constellation = io.StdIn.readLine()
+//    if (constellation.isEmpty()) {
+//      println("自分の星座を入力してください")
+//      val constellation = io.StdIn.readLine()
+//    }
     val yuusha = new Yuusha(firstname,lastname)
+    yuusha.getSwordSkill()
     val characterFactory = CharacterFactory.create()
     println(characterFactory.attack())
-    val elements = Map(
+    val Points = Map(
       "HP" -> firstname.length(),
       "MP" -> lastname.length()
     )
@@ -37,8 +42,9 @@ object RPG {
     metalslime.printSkill()
     yuusha.walk()
     yuusha.attack()
-    yuusha.HP = yuusha.getHP(elements.get("HP"))
-    yuusha.MP = yuusha.getMP(elements.get("MP"))
+    yuusha.HP = yuusha.getHP(Points.get("HP"))
+    yuusha.MP = yuusha.getMP(Points.get("MP"))
+
   }
 
 }

@@ -1,4 +1,13 @@
 import java.io.{BufferedReader, FileReader}
+
+import net.ruippeixotog.scalascraper.model._
+import net.ruippeixotog.scalascraper.browser.JsoupBrowser
+import net.ruippeixotog.scalascraper.dsl.DSL._
+import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
+import net.ruippeixotog.scalascraper.model._
+import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
+
+
 class Character extends Human with Aggressive {
   override var HP: Int = 10
   override var MP: Int = 10
@@ -43,5 +52,15 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
     reader.close
     println(skillList.head)
   }
+
+  def getSwordSkill(): Unit ={
+    // スクレイピングすっぞ
+    val sword_skills = JsoupBrowser().get("https://www43.atwiki.jp/medakabox/pages/194.html")
+    for {skills <- sword_skills >> elements("table > tbody > tr")
+         line = (skills >> elementList("td")).map(_.text)
+    }println(s"$line")
+  }
+
+
 
 }
