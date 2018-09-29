@@ -30,6 +30,7 @@ object RPG {
 //    }
     val yuusha = new Yuusha(firstname,lastname)
     yuusha.getSwordSkill()
+//    yuusha.getCombatSkill()
     val characterFactory = CharacterFactory.create()
     println(characterFactory.attack())
     val Points = Map(
