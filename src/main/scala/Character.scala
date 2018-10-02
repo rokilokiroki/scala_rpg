@@ -53,39 +53,26 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
     println(skillList.head)
   }
 
-  def getSwordSkill(): Unit ={
+  def getSwordSkill(a:Int): List[String] ={
 
     val sword_skills = JsoupBrowser().get("https://www43.atwiki.jp/medakabox/pages/194.html")
     val line:List[List[String]] = for {skills <- sword_skills >> elementList("table > tbody > tr")
          line:List[String] = (skills >> elementList("td")).map(_.text)
-//         skill <- line
     }yield { line }
-
-//    val sword = for(i <- 0 to skill.size; if i % 2 != 0)yield{
-//          skill(i)
-//    }
-//    val sword:List[String] = for {i <- 0 to line.size
-//      l:List[String] =
-//    }
-//
-//    println(sword)
-//    val sword = for {
-//      s <- skill
-//      i <- 0 to skill.size
-//      a = if (i % 2 != 0) {
-//        skill(i)
-//      }
-//    }yield{ a }
+    val skill:List[String] = List(line(a)(1), line(a)(2))
+      return skill
 
   }
 
   def getCombatSkill(): Unit ={
     val combat_skills = JsoupBrowser().get("https://www43.atwiki.jp/medakabox/pages/195.html")
-    for {skills <- combat_skills >> elementList("table > tbody > tr")
+    val skill:List[String] = for {skills <- combat_skills >> elementList("table > tbody > tr")
          line:List[String] = (skills >> elementList("td")).map(_.text)
-         skill = line(1)
-         explain = line(2)
-    }println(s"$skill - $explain")
+         skill <- line
+    }yield {skill}
+    skill match {
+      case
+    }
   }
 
   def getMagicSkill(): Unit ={

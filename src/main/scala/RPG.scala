@@ -29,8 +29,10 @@ object RPG {
 //      val constellation = io.StdIn.readLine()
 //    }
     val yuusha = new Yuusha(firstname,lastname)
-    yuusha.getSwordSkill()
-//    yuusha.getCombatSkill()
+    val a = firstname.size
+    val sword_skill = yuusha.getSwordSkill(a)
+    println(sword_skill(0),sword_skill(1))
+
     val characterFactory = CharacterFactory.create()
     println(characterFactory.attack())
     val Points = Map(
