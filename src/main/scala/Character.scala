@@ -70,9 +70,9 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
          line:List[String] = (skills >> elementList("td")).map(_.text)
          skill <- line
     }yield {skill}
-    skill match {
-      case
-    }
+//    skill match {
+//      case
+//    }
   }
 
   def getMagicSkill(): Unit ={
@@ -100,6 +100,10 @@ class Yuusha(val firstname: String, val lastname: String) extends Character {
          skill = line(1)
          explain = line(2)
     }println(s"$skill - $explain")
+  }
+
+  def getSkillByConstellation(constellation: String): Unit ={
+
   }
 
 }
